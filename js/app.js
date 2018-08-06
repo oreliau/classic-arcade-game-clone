@@ -1,4 +1,5 @@
 
+// define variable of enemies
 var Enemy = function (x, y, speed) {
     this.x = x;
     this.y = y;
@@ -6,15 +7,16 @@ var Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-
+//define spped of enemies
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
 
     if (this.x > 510) {
         this.x = -50;
-        this.speed = 100 + Math.random();
+        this.speed = 100+ (Math.random() * 500);
     };
 
+//define distance of colision and restart pos of player
     if (player.x < this.x + 80 &&
         player.x + 80 > this.x &&
         player.y < this.y + 60 &&
@@ -29,9 +31,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//define variable of player
 var Player = function(x, y){
     this.x = x;
     this.y = y;
@@ -44,17 +44,18 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.player), this.x, this.y);
 };
 
+//define move of player with arrow on keyborad
 Player.prototype.handleInput = function(keyPress) {
-    if(keyPress == "left" && this.x >0){
+    if((keyPress == "left" || keyPress == 'a') && this.x >0){
         this.x -= 102;
     };
-    if(keyPress == "up" && this.y >0){
+    if((keyPress == "up" || keyPress == 'w') && this.y >0){
         this.y -= 83;
     };
-    if(keyPress == "right" && this.x < 405){
+    if((keyPress == "right" || keyPress == 'd') && this.x < 405){
         this.x += 102;
     };
-    if(keyPress == "down" && this.y < 405){
+    if((keyPress == "down" || keyPress == 's') && this.y < 405){
         this.y += 83;
     };
     //for restart
@@ -85,6 +86,10 @@ var player = new Player(202, 405);
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
+        87: 'w',
+        65: 'a',
+        83: 's',
+        68: 'd',
         37: 'left',
         38: 'up',
         39: 'right',
