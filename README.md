@@ -3,8 +3,13 @@
 
 ## Table of Contents
 
+* [load the game locally]
 * [Instructions](#instructions)
 * [The Game](#Game)
+
+## load the game locally
+
+download/clone the repository https://github.com/oreliau/classic-arcade-game-clone and open index.html in browser
 
 ## Instructions
 
@@ -16,3 +21,5 @@ d=right
 
 ## The Game
 you have to cross the street and dodge bugs
+
+
