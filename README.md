@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-* [load the game locally](#load the game locally)
+* [load the game locally](#load)
 * [Instructions](#instructions)
 * [The Game](#Game)
 
