@@ -1,4 +1,20 @@
+let Keyboard = window.SimpleKeyboard.default;
 
+// set keyboard
+let myKeyboard = new Keyboard({
+  onChange: input => onChange(input),
+  onKeyPress: button => onKeyPress(button),
+  layout: {
+    default: [
+        'B &#8593; A',
+        '&#8592; &#8595; &#8594;'
+      ],}
+});
+
+// catch keyboard arrow
+function onKeyPress(button) {
+    player.handleInput(button);
+}
 // define variable of enemies
 var Enemy = function (x, y, speed) {
     this.x = x;
@@ -46,16 +62,16 @@ Player.prototype.render = function() {
 
 //define move of player with arrow on keyborad
 Player.prototype.handleInput = function(keyPress) {
-    if((keyPress == "left" || keyPress == 'a') && this.x >0){
+    if((keyPress == "left" || keyPress == '&#8592;') && this.x >0){
         this.x -= 102;
     };
-    if((keyPress == "up" || keyPress == 'w') && this.y >0){
+    if((keyPress == "up" || keyPress == '&#8593;') && this.y >0){
         this.y -= 83;
     };
-    if((keyPress == "right" || keyPress == 'd') && this.x < 405){
+    if((keyPress == "right" || keyPress == '&#8594;') && this.x < 405){
         this.x += 102;
     };
-    if((keyPress == "down" || keyPress == 's') && this.y < 405){
+    if((keyPress == "down" || keyPress == '&#8595;') && this.y < 405){
         this.y += 83;
     };
     //for restart
